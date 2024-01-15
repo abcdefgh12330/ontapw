@@ -1,0 +1,95 @@
+﻿@{
+    List<PhanLoai> phanLoai = ViewBag.phanLoai;
+    ViewBag.Title = "Home Page";
+    List<SanPham> allProducts = ViewBag.allProducts;
+
+}
+
+<section class="alazea-portfolio-area section-padding-100-0">
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-12">
+                <!-- Section Heading -->
+                <div class="section-heading text-center">
+                    <h2>OUR PORTFOLIO</h2>
+                    <p>Nguyễn Phạm Phú Huy - CNTT.K62</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="alazea-portfolio-filter">
+                    <div class="portfolio-filter">
+                        @foreach (var item in phanLoai)
+                        {
+                            <button class="btn btn-Getcategory" data-filter="">@item.PhanLoaiChinh</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row alazea-portfolio" id="loadAjaxProducts">
+            @foreach (var product in allProducts)
+            {
+                <!-- Single Portfolio Area -->
+                <div class="mt-3 col-12 col-sm-6 col-lg-3 single_portfolio_item design home-design wow fadeInUp" data-wow-delay="100ms">
+                    <!-- Portfolio Thumbnail -->
+
+                    <div class="portfolio-thumbnail bg-img"><img src="~/Content/img/bg-img/@product.AnhDaiDien"></div>
+                    <!-- Portfolio Hover Text -->
+                    <div class="portfolio-hover-overlay">
+                        <a href="@Url.Action("Details","SanPhams",new {id = product.MaSanPham})" class="d-flex align-items-center justify-content-center" title="Portfolio 1">
+                            <div class="port-hover-text">
+                                <h3>@product.TenSanPham</h3>
+                                <h5>@product.DonGiaBanNhoNhat</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+@Scripts.Render("~/Scripts/js/jquery/jquery-2.2.4.min.js");
+<script>
+    $(".btn-Getcategory").click( function() {
+        var phanLoaiChinh = $(this).text();
+        var str = '';
+        $.ajax({
+            url: '@Url.Action("GetProductsByCategory", "PhanLoais")',
+            dataType: 'json',
+            type: 'GET',
+            data: { phanLoai: phanLoaiChinh },
+            success: function (data) {
+                $.each(data.product, function (key, val) {
+                    var filePath = "/Content/img/bg-img/" + val.AnhDaiDien;
+                    var maSanPham = encodeURIComponent(val.MaSanPham);
+                    var url = "/SanPhams/Details/" + maSanPham;
+                    str += `<div class="mt-3 col-12 col-sm-6 col-lg-3 single_portfolio_item design home-design wow fadeInUp" data-wow-delay="100ms">
+    <!-- Portfolio Thumbnail -->
+
+    <div class="portfolio-thumbnail bg-img"><img src="${filePath}"></div>
+    <!-- Portfolio Hover Text -->
+    <div class="portfolio-hover-overlay">
+        <a href="${url}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 1">
+            <div class="port-hover-text">
+                <h3>${val.TenSanPham}</h3>
+                <h5>${val.DonGiaBanNhoNhat}</h5>
+            </div>
+        </a>
+    </div>
+</div>`
+                });
+                $('#loadAjaxProducts').html(str);
+            },
+            error: function (data) {
+                console.log("Lỗi");
+            }
+        });
+    });
+</script>

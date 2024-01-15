@@ -1,0 +1,53 @@
+﻿@model De08_NguyenPhamPhuHuy_CNTTK62_6251071038.SanPham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết sản phẩm</h2>
+<div class="single-product-area section-padding-100 clearfix">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12 col-lg-7">
+                <div class="single_product_thumb">
+                    <div id="product_details_slider" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li class="active" data-target="#product_details_slider" data-slide-to="0"><img src="~/Content/img/bg-img/@Model.AnhDaiDien"/>
+                            </li>
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5">
+                <div class="single_product_desc">
+                    <!-- Product Meta Data -->
+                    <div class="product-meta-data">
+                        <div class="line"></div>
+                        <p class="product-price">@Model.GiaNhap</p>
+                        <p class="product-price">@Model.DonGiaBanNhoNhat</p>
+                        <p class="product-price">@Model.DonGiaBanLonNhat</p>
+                        <a href="product-details.html">
+                            <h6>@Model.TenSanPham</h6>
+                            <h6>Phân loại: @Model.PhanLoai.PhanLoaiChinh</h6>
+                            <h6>Phân loại phụ: @Model.PhanLoaiPhu.TenPhanLoaiPhu</h6>
+                        </a>
+                        <!-- Avaiable -->
+                        <p class="avaibility"><i class="fa fa-circle"></i> @Model.TrangThai</p>
+                    </div>
+
+                    <div class="short_overview my-5">
+                        <p>@Model.MoTaNgan</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Xóa", "Delete", new { id = Model.MaSanPham, @class="btn btn-primary" }) |
+    @Html.ActionLink("Trở về", "Index", "Home")
+</p>

@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    List<SanPham> sanPhams = ViewBag.sanPhams;
+
+}
+
+<div class="products-catagories-area clearfix">
+    <div class="amado-pro-catagory clearfix"id="loadProductsByAjax" >
+        @foreach (var sp in sanPhams)
+        {<!-- Single Catagory -->
+            <div class="single-products-catagory clearfix">
+                <a href="/SanPhams/Details/@sp.MaSanPham">
+                    <img src="~/Content/img/bg-img/@sp.AnhDaiDien" alt="">
+                    <!-- Hover Content -->
+                    <div class="hover-content">
+                        <div class="line"></div>
+                        <p>Chỉ từ @sp.DonGiaBanNhoNhat</p>
+                        <h4>@sp.TenSanPham</h4>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

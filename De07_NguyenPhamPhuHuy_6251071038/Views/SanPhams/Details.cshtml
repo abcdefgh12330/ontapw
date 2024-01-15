@@ -1,0 +1,99 @@
+﻿@model De07_NguyenPhamPhuHuy_6251071038.SanPham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div class="pt-5">
+    <h4 class="pt-5">SanPham</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSanPham)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaNhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaNhap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGiaBanNhoNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGiaBanNhoNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGiaBanLonNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGiaBanLonNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTaNgan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTaNgan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhDaiDien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnhDaiDien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiBat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiBat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhanLoai.PhanLoaiChinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhanLoai.PhanLoaiChinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhanLoaiPhu.TenPhanLoaiPhu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhanLoaiPhu.TenPhanLoaiPhu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaSanPham },new {@class = "btn btn-primary"}) |
+    @Html.ActionLink("trở về", "Index","Home", new { @class = "btn btn-primary" })
+</p>

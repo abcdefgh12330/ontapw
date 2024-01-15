@@ -1,0 +1,27 @@
+﻿@model De01_NguyenPhamPhuHuy_CNTT_6251071038.PhanLoai
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PhanLoai</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhanLoaiChinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhanLoaiChinh)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaPhanLoai }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

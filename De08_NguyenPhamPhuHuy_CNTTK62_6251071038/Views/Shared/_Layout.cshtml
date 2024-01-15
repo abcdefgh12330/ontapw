@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title  -->
+    <title>Amado - Furniture Ecommerce Template | Home</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- Favicon  -->
+    <link rel="icon" href="~/Content/img/core-img/favicon.ico">
+    <link href="~/Content/css/magnific-popup.css" rel="stylesheet" />
+    <!-- Core Style CSS -->
+    <link href="~/Content/css/core-style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/style.css">
+</head>
+
+<body>
+    <div class="main-content-wrapper d-flex clearfix">
+        @Html.Partial("_Header")
+        @RenderBody()
+    </div>
+    @Html.Partial("_Footer")
+    <script src="~/Scripts/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="~/Scripts/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="~/Scripts/js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="~/Scripts/js/active.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+</body>
+
